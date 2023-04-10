@@ -9,10 +9,10 @@ export class TypeOrmCalculate implements CalculationModel {
   @Column()
   calc: string
 
-  @Column()
+  @Column({nullable: true})
   accountId: string
 
-  @Column()
+  @Column({ type: "decimal", precision: 10, scale: 2, default: 0 })
   answer: number
 
   @CreateDateColumn()

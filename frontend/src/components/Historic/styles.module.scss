@@ -1,0 +1,26 @@
+.historicContainer {
+  margin: 0px 220px;
+  width: 800px;
+}
+
+.historic {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.calc p {
+  color: var(--black);
+}
+
+.answer p {
+  color: var(--black);
+}
+
+.date p {
+  color: var(--black);
+}

@@ -1,16 +1,36 @@
 import React, { useState } from "react";
 import styles from './styles.module.scss'
+import { api } from "../../../services/api";
+import { toast } from "react-toastify";
 
-export default function Calculator() {
+export type CalculatorProps = {
+  setHistoricData: (data: any) => void;
+}
+
+export default function Calculator({setHistoricData}: CalculatorProps) {
   const [value, setValue] = useState("");
 
   const handleButtonClick = (e:any) => {
     setValue(value + e.target.value);
   };
 
-  const calculateResult = () => {
-    setValue(eval(value));
-  };
+  async function calculateResult() {
+    try {
+      const calculation = {calc: value}
+      const res = await api.post('calc', calculation)
+
+      if(res.status === 200) {
+        const calculations = await api.get('calculations')
+        setValue(res.data);
+        setHistoricData(calculations.data)
+      } else if (res.status===500){
+
+        toast.error('Erro no servidor!')
+      }
+    }catch(err) {
+      toast.error(`${err}`);
+    }
+  }
 
   const clearInput = () => {
     setValue("");

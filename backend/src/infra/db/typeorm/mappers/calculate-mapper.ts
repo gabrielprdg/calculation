@@ -3,10 +3,11 @@ import { TypeOrmCalculate } from "../entities/typeorm-calculate"
 
 export class Mapper {
   public static toDomainEntity (typeOrmCalculate: TypeOrmCalculate): CalculationModel {
-    console.log('3e', typeOrmCalculate)
+    
     const domain: CalculationModel = {
         id: typeOrmCalculate.id,
         calc: typeOrmCalculate.calc,
+        answer: typeOrmCalculate.answer,
         accountId: typeOrmCalculate.accountId,
         created_at: typeOrmCalculate.created_at
     }

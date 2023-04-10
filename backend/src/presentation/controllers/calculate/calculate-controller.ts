@@ -1,6 +1,6 @@
-import { badRequest, ok, serverError } from "../../../presentation/helpers/http/http-helper"
-import { Calculate } from "../../../domain/use-cases/calculate/calculate"
-import { Controller, HttpRequest, HttpResponse, Validation } from "../../../presentation/protocols"
+import { badRequest, ok, serverError } from '../../../presentation/helpers/http/http-helper'
+import { Calculate } from '../../../domain/use-cases/calculate/calculate'
+import { Controller, HttpRequest, HttpResponse, Validation } from '../../../presentation/protocols'
 
 export class CalculateController implements Controller {
   private readonly calculate: Calculate

@@ -1,6 +1,7 @@
 export type CalculationModel = {
   id: string
   calc: string
-  accountId: string
+  answer: number
+  accountId?: string
   created_at?: Date
 }

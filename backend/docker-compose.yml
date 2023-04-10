@@ -13,13 +13,13 @@ services:
     build: .
     container_name: l5networks_app
     restart: always
-    command: npm run watch
+    command: npm run start
     volumes:
       - ./src:/usr/src/l5networks/src
       - ./dist:/usr/src/l5networks/dist
     ports:
       - 8085:8085
-      - 9222:9222
+      - 9229:9229
     env_file:
       - .env
     depends_on:
