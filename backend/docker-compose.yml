@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:14.6
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    # create a volumes to persist data 
+    volumes:
+      - pg_data:/var/lib/postgres/data
+  app:
+    build: .
+    container_name: l5networks_app
+    restart: always
+    command: npm run watch
+    volumes:
+      - ./src:/usr/src/l5networks/src
+      - ./dist:/usr/src/l5networks/dist
+    ports:
+      - 8085:8085
+      - 9222:9222
+    env_file:
+      - .env
+    depends_on:
+      - db
+volumes:
+  pg_data:
+
+
+
